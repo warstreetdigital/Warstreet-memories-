@@ -8,15 +8,16 @@ export default defineConfig(() => {
   return {
     plugins: [
       {
-        name: 'root-assets-resolver',
+        name: 'images-dir-handler',
         configureServer(server) {
           server.middlewares.use((req, res, next) => {
-            if (req.url && (req.url.startsWith('/birthdays/stella-aaliyah-dinar/stella-') || req.url === '/birthdays/stella-aaliyah-dinar/Stella-portrait.webp' || req.url.startsWith('/stella-') || req.url === '/Stella-portrait.webp')) {
-              const filename = path.basename(req.url.split('?')[0]);
-              const rootFile = path.resolve(import.meta.dirname, filename);
-              if (fs.existsSync(rootFile)) {
+            if (req.url && (req.url.startsWith('/images/') || req.url.startsWith('/birthdays/stella-aaliyah-dinar/images/'))) {
+              const cleanUrl = req.url.split('?')[0];
+              const filename = path.basename(cleanUrl);
+              const imgFile = path.resolve(import.meta.dirname, 'images', filename);
+              if (fs.existsSync(imgFile) && fs.statSync(imgFile).isFile()) {
                 res.setHeader('Content-Type', 'image/webp');
-                fs.createReadStream(rootFile).pipe(res);
+                fs.createReadStream(imgFile).pipe(res);
                 return;
               } else {
                 res.statusCode = 404;
@@ -26,6 +27,18 @@ export default defineConfig(() => {
             }
             next();
           });
+        },
+        closeBundle() {
+          const srcImages = path.resolve(import.meta.dirname, 'images');
+          const distImages = path.resolve(import.meta.dirname, 'dist', 'images');
+          if (fs.existsSync(srcImages)) {
+            fs.cpSync(srcImages, distImages, { recursive: true });
+          }
+          const srcRedirects = path.resolve(import.meta.dirname, '_redirects');
+          const distRedirects = path.resolve(import.meta.dirname, 'dist', '_redirects');
+          if (fs.existsSync(srcRedirects)) {
+            fs.copyFileSync(srcRedirects, distRedirects);
+          }
         }
       },
       react(),
