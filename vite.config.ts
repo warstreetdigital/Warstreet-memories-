@@ -11,18 +11,38 @@ export default defineConfig(() => {
         name: 'images-dir-handler',
         configureServer(server) {
           server.middlewares.use((req, res, next) => {
-            if (req.url && (req.url.startsWith('/images/') || req.url.startsWith('/birthdays/stella-aaliyah-dinar/images/'))) {
-              const cleanUrl = req.url.split('?')[0];
-              const filename = path.basename(cleanUrl);
-              const imgFile = path.resolve(import.meta.dirname, 'images', filename);
-              if (fs.existsSync(imgFile) && fs.statSync(imgFile).isFile()) {
-                res.setHeader('Content-Type', 'image/webp');
-                fs.createReadStream(imgFile).pipe(res);
+            if (req.url) {
+              const urlParts = req.url.split('?');
+              const cleanUrl = urlParts[0];
+              const query = urlParts[1] ? `?${urlParts[1]}` : '';
+
+              // Ensure canonical trailing-slash for directory paths so dev server serves correct index.html
+              const directoryRoutes = [
+                '/birthdays/stella-aaliyah-dinar',
+                '/birthdays',
+                '/weddings',
+                '/roora',
+                '/love-family'
+              ];
+              if (directoryRoutes.includes(cleanUrl)) {
+                res.statusCode = 301;
+                res.setHeader('Location', `${cleanUrl}/${query}`);
+                res.end();
                 return;
-              } else {
-                res.statusCode = 404;
-                res.end('Not Found');
-                return;
+              }
+
+              if (req.url.startsWith('/images/') || req.url.startsWith('/birthdays/stella-aaliyah-dinar/images/')) {
+                const filename = path.basename(cleanUrl);
+                const imgFile = path.resolve(import.meta.dirname, 'images', filename);
+                if (fs.existsSync(imgFile) && fs.statSync(imgFile).isFile()) {
+                  res.setHeader('Content-Type', 'image/webp');
+                  fs.createReadStream(imgFile).pipe(res);
+                  return;
+                } else {
+                  res.statusCode = 404;
+                  res.end('Not Found');
+                  return;
+                }
               }
             }
             next();
@@ -33,6 +53,16 @@ export default defineConfig(() => {
           const distImages = path.resolve(import.meta.dirname, 'dist', 'images');
           if (fs.existsSync(srcImages)) {
             fs.cpSync(srcImages, distImages, { recursive: true });
+          }
+          const srcJs = path.resolve(import.meta.dirname, 'js');
+          const distJs = path.resolve(import.meta.dirname, 'dist', 'js');
+          if (fs.existsSync(srcJs)) {
+            fs.cpSync(srcJs, distJs, { recursive: true });
+          }
+          const srcCss = path.resolve(import.meta.dirname, 'css');
+          const distCss = path.resolve(import.meta.dirname, 'dist', 'css');
+          if (fs.existsSync(srcCss)) {
+            fs.cpSync(srcCss, distCss, { recursive: true });
           }
           const srcRedirects = path.resolve(import.meta.dirname, '_redirects');
           const distRedirects = path.resolve(import.meta.dirname, 'dist', '_redirects');
