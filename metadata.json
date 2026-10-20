@@ -1,0 +1,6 @@
+{
+  "name": "WarStreet Memories",
+  "description": "WarStreet Memories — A premium digital memory platform by WarStreet Experience Model™ connecting physical gifts to eternal digital keepsakes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

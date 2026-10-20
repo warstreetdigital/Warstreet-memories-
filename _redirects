@@ -1,0 +1,14 @@
+# Cloudflare Pages Routing Configuration
+/birthdays/stella-aaliyah-dinar/Stella-portrait.webp   /Stella-portrait.webp   200
+/birthdays/stella-aaliyah-dinar/stella-:splat.webp    /stella-:splat.webp     200
+/birthdays/stella-aaliyah-dinar/   /birthdays/stella-aaliyah-dinar/index.html   200
+/birthdays/stella-aaliyah-dinar    /birthdays/stella-aaliyah-dinar/index.html   200
+/birthdays/                        /birthdays/index.html                        200
+/birthdays                         /birthdays/index.html                        200
+/weddings/                         /weddings/index.html                         200
+/weddings                          /weddings/index.html                         200
+/roora/                            /roora/index.html                            200
+/roora                             /roora/index.html                            200
+/love-family/                      /love-family/index.html                      200
+/love-family                       /love-family/index.html                      200
+
