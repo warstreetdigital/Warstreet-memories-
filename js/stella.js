@@ -24,7 +24,7 @@
   // Confirmed Photo Slots Registry (Section 1 and Cover)
   const STELLA_PHOTOS = {
     cover: OFFICIAL_PORTRAIT_URL, // Opening Cover Portrait on landing page only (retains external URL per Rule 2)
-    hero: "./Stella-portrait.webp"   // Section 1 Portrait Intro inside memory page (root-level local asset)
+    hero: "/images/stella-portrait.webp"   // Section 1 Portrait Intro inside memory page
   };
 
   /**
@@ -74,52 +74,34 @@
 
   async function discoverLocalGalleryMedia() {
     AALIYAH_BIRTHDAY_MEDIA.length = 0;
-    const MAX_PROBE = 60;
-    const CHUNK_SIZE = 10;
-    let foundAny = false;
+    const TOTAL_ITEMS = 21;
+    const probePromises = [];
 
-    for (let start = 1; start <= MAX_PROBE; start += CHUNK_SIZE) {
-      const batchPromises = [];
-      for (let i = start; i < start + CHUNK_SIZE && i <= MAX_PROBE; i++) {
-        const num = i;
-        const pathPrimary = `./stella-${num}.webp`;
-        const pathRoot = `/stella-${num}.webp`;
-        batchPromises.push((async () => {
-          let res = await probeImage(pathPrimary);
-          if (res.exists) {
-            return { num, src: pathPrimary, srcRoot: pathRoot };
-          }
-          res = await probeImage(pathRoot);
-          if (res.exists) {
-            return { num, src: pathRoot, srcRoot: pathRoot };
-          }
-          return null;
-        })());
-      }
-
-      const results = await Promise.all(batchPromises);
-      const valid = results.filter(Boolean);
-
-      if (valid.length > 0) {
-        foundAny = true;
-        valid.sort((a, b) => a.num - b.num);
-        valid.forEach(item => {
-          AALIYAH_BIRTHDAY_MEDIA.push({
-            id: `stella-${item.num}`,
+    for (let i = 1; i <= TOTAL_ITEMS; i++) {
+      const numStr = String(i).padStart(2, '0');
+      const imagePath = `/images/stella-memory-${numStr}.webp`;
+      probePromises.push((async () => {
+        const res = await probeImage(imagePath);
+        if (res.exists) {
+          return {
+            num: i,
+            id: `stella-memory-${numStr}`,
             type: 'photo',
-            title: `stella-${item.num}`,
-            thumbUrl: item.src,
-            fullUrl: item.src,
-            srcRoot: item.srcRoot,
-            alt: `Aaliyah's 22nd birthday photo ${item.num}`,
+            title: `stella-memory-${numStr}`,
+            thumbUrl: imagePath,
+            fullUrl: imagePath,
+            alt: `Aaliyah's 22nd birthday photo ${i}`,
             status: 'ready'
-          });
-        });
-      } else {
-        // Stop sequential search once a chunk returns no images
-        break;
-      }
+          };
+        }
+        return null;
+      })());
     }
+
+    const results = await Promise.all(probePromises);
+    const valid = results.filter(Boolean);
+    valid.sort((a, b) => a.num - b.num);
+    valid.forEach(item => AALIYAH_BIRTHDAY_MEDIA.push(item));
 
     return AALIYAH_BIRTHDAY_MEDIA;
   }
@@ -330,11 +312,6 @@
 
       if (existingImg) {
         existingImg.addEventListener('error', () => {
-          if (!existingImg.dataset.fallbackTried && existingImg.src.indexOf('Stella-portrait.webp') !== -1) {
-            existingImg.dataset.fallbackTried = '1';
-            existingImg.src = '/Stella-portrait.webp';
-            return;
-          }
           existingImg.classList.add('is-hidden');
           if (fallback && slotKey === 'cover') fallback.classList.add('is-visible');
         });
@@ -429,14 +406,7 @@
         img.loading = 'lazy';
         img.decoding = 'async';
         img.onerror = function () {
-          if (!this.dataset.fallbackApplied) {
-            this.dataset.fallbackApplied = 'true';
-            if (item.srcRoot && this.src !== item.srcRoot) {
-              this.src = item.srcRoot;
-            } else if (this.src.indexOf('stella-') !== -1) {
-              this.src = '/' + item.id + '.webp';
-            }
-          }
+          this.classList.add('is-hidden');
         };
         cell.appendChild(img);
       }
@@ -639,14 +609,7 @@
       img.alt = item.alt || "Aaliyah's 22nd birthday memory";
       img.decoding = 'async';
       img.onerror = function () {
-        if (!this.dataset.fallbackApplied) {
-          this.dataset.fallbackApplied = 'true';
-          if (item.srcRoot && this.src !== item.srcRoot) {
-            this.src = item.srcRoot;
-          } else {
-            this.src = '/' + item.id + '.webp';
-          }
-        }
+        this.classList.add('is-hidden');
       };
       mediaContainer.appendChild(img);
     }
