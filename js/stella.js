@@ -28,83 +28,25 @@
   };
 
   /**
-   * Section 2: Dynamic Local Asset Gallery Registry
-   * Dynamically loads only verified local assets from repository root in numerical order:
-   * ./stella-1.webp, ./stella-2.webp, ./stella-3.webp, etc.
-   * Completely static-compatible; skips missing numbers, no broken icons, no empty tiles.
+   * Section 2: Birthday Keepsake Gallery Registry
+   * Exact 21 confirmed memory photos located in /images/stella-memory-01.webp through /images/stella-memory-21.webp
+   * Displayed in exact numerical order without placeholder tiles or broken icons.
    */
-  const AALIYAH_BIRTHDAY_MEDIA = [];
-
-  async function probeImage(src) {
-    try {
-      if (typeof fetch === 'function') {
-        const res = await fetch(src, { method: 'HEAD', cache: 'default' });
-        if (res.ok) {
-          const type = res.headers.get('content-type') || '';
-          if (type.includes('image')) {
-            return { src, exists: true };
-          }
-        }
-        return { src, exists: false };
-      }
-    } catch (_) {
-      // Offline/CORS fallback to Image loader
-    }
-
-    return new Promise((resolve) => {
-      const img = new Image();
-      let settled = false;
-      img.onload = () => {
-        if (settled) return;
-        settled = true;
-        if (img.naturalWidth > 0 && img.naturalHeight > 0) {
-          resolve({ src, exists: true });
-        } else {
-          resolve({ src, exists: false });
-        }
-      };
-      img.onerror = () => {
-        if (settled) return;
-        settled = true;
-        resolve({ src, exists: false });
-      };
-      img.src = src;
-    });
-  }
-
-  async function discoverLocalGalleryMedia() {
-    AALIYAH_BIRTHDAY_MEDIA.length = 0;
-    const TOTAL_ITEMS = 21;
-    const probePromises = [];
-
-    for (let i = 1; i <= TOTAL_ITEMS; i++) {
-      const numStr = String(i).padStart(2, '0');
-      const imagePath = `/images/stella-memory-${numStr}.webp`;
-      probePromises.push((async () => {
-        const res = await probeImage(imagePath);
-        if (res.exists) {
-          return {
-            num: i,
-            id: `stella-memory-${numStr}`,
-            type: 'photo',
-            title: `stella-memory-${numStr}`,
-            thumbUrl: imagePath,
-            fullUrl: imagePath,
-            alt: `Aaliyah's 22nd birthday photo ${i}`,
-            status: 'ready'
-          };
-        }
-        return null;
-      })());
-    }
-
-    const results = await Promise.all(probePromises);
-    const valid = results.filter(Boolean);
-    valid.sort((a, b) => a.num - b.num);
-    valid.forEach(item => AALIYAH_BIRTHDAY_MEDIA.push(item));
-
-    return AALIYAH_BIRTHDAY_MEDIA;
-  }
+  const AALIYAH_BIRTHDAY_MEDIA = Array.from({ length: 21 }, (_, i) => {
+    const num = i + 1;
+    const numStr = String(num).padStart(2, '0');
+    const imagePath = `/images/stella-memory-${numStr}.webp`;
+    return {
+      num,
+      id: `stella-memory-${numStr}`,
+      type: 'photo',
+      title: `stella-memory-${numStr}`,
+      thumbUrl: imagePath,
+      fullUrl: imagePath,
+      alt: `Aaliyah's 22nd birthday photo ${num}`,
+      status: 'ready'
+    };
+  });
 
   let singleAudioInstance = null;
   let experienceInitiated = false;
@@ -347,12 +289,11 @@
   let activeViewerIndex = 0;
   let savedScrollY = 0;
 
-  async function initBirthdayGallery() {
+  function initBirthdayGallery() {
     const gridEl = document.getElementById('birthday-gallery-grid');
     if (!gridEl) return;
 
     initLightboxViewer();
-    await discoverLocalGalleryMedia();
     renderGalleryGrid(gridEl);
   }
 
@@ -407,6 +348,8 @@
         img.decoding = 'async';
         img.onerror = function () {
           this.classList.add('is-hidden');
+          const parent = this.closest('.gallery-item');
+          if (parent) parent.style.display = 'none';
         };
         cell.appendChild(img);
       }
