@@ -1,0 +1,1500 @@
+/* ==========================================================================
+   WARSTREET MEMORIES — STELLA AALIYAH DINAR
+   PREMIUM CINEMATIC BLACK BIRTHDAY KEEPSAKE
+   Palette: Rich Charcoal-Black (#0b080c, #0f0a10)
+            Burgundy Undertones (#220a18, #3b1429, #54193a)
+            Muted Rose & Blush Highlights (#d88ba8, #e5b7c7, #faeef3)
+            Warm Ivory / Luminous White (#fbf5f8, #ffffff)
+   Typography: Cormorant Garamond (Editorial Serif) | Montserrat (Accents) | Poppins (Body)
+   ========================================================================== */
+
+:root {
+  --color-noir-deep: #0b080c;
+  --color-noir-surface: #120c15;
+  --color-noir-elevated: #1a101e;
+  
+  --color-burgundy-dark: #220a18;
+  --color-burgundy-mid: #3b1429;
+  --color-burgundy-light: #54193a;
+  --color-burgundy-glow: rgba(84, 25, 58, 0.45);
+  
+  --color-rose-muted: #d88ba8;
+  --color-rose-gold: #e5b7c7;
+  --color-blush-soft: #faeef3;
+  --color-rose-glow: rgba(216, 139, 168, 0.25);
+  
+  --color-text-luminous: #ffffff;
+  --color-text-primary: #fbf5f8;
+  --color-text-secondary: #c9b4be;
+  --color-text-muted: #8e7a85;
+  
+  --color-border-subtle: rgba(229, 183, 199, 0.16);
+  --color-border-glow: rgba(229, 183, 199, 0.35);
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  --transition-fast: 200ms ease;
+  --transition-smooth: 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-cinematic: 1200ms cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+
+/* Base Reset & Atmospheric Canvas */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--color-noir-deep);
+  -webkit-text-size-adjust: 100%;
+}
+
+body.stella-experience {
+  background-color: var(--color-noir-deep);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.65;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ambient Radial Lighting Canvas (Cinematic Deep Burgundy Glow) */
+.stella-ambient-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background: 
+    radial-gradient(circle at 50% 15%, rgba(84, 25, 58, 0.32) 0%, transparent 65%),
+    radial-gradient(circle at 85% 45%, rgba(59, 20, 41, 0.28) 0%, transparent 55%),
+    radial-gradient(circle at 15% 80%, rgba(34, 10, 24, 0.5) 0%, transparent 65%);
+}
+
+/* ==========================================================================
+   TEMPORARY PREVIEW DIRECT ENTRY (FOR SECTION 1 REVIEW)
+   Bypasses the landing cover when .preview-direct-memory is present.
+   Will be removed once Section 1 is perfected and approved.
+   ========================================================================== */
+html.preview-direct-memory .stella-opening-cover {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+html.preview-direct-memory .stella-memory-body {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+html.preview-direct-memory .stella-audio-pill {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+/* ==========================================================================
+   LANDING PAGE — IMMERSIVE OPENING COVER (UNOBSTRUCTED NATURAL PHOTOGRAPH)
+   ========================================================================== */
+.stella-opening-cover {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 100;
+  background-color: var(--color-noir-deep);
+  background-image: 
+    radial-gradient(circle at 50% 15%, rgba(84, 25, 58, 0.45) 0%, transparent 68%),
+    radial-gradient(circle at 50% 80%, rgba(34, 10, 24, 0.5) 0%, transparent 70%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: env(safe-area-inset-top, 12px) 1rem env(safe-area-inset-bottom, 18px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 1.2s;
+}
+
+/* The Container inside the Cover (Starts near top with modest margin, natural height) */
+.cover-card-container {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 0.35rem 0 1.25rem 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* 1. Full Uncropped Photograph Centerpiece (Natural aspect ratio, never cropped or forced) */
+.cover-portrait-wrapper {
+  width: min(340px, 90vw);
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  transition: transform 6s cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+
+/* Soft Atmospheric LED Glow behind Portrait */
+.cover-portrait-glow {
+  position: absolute;
+  inset: -8px;
+  background: radial-gradient(
+    circle at center,
+    rgba(84, 25, 58, 0.65) 0%,
+    rgba(216, 139, 168, 0.28) 45%,
+    transparent 72%
+  );
+  border-radius: calc(var(--radius-xl) + 8px);
+  z-index: 0;
+  filter: blur(14px);
+  pointer-events: none;
+  animation: ambient-soft-glow 6s ease-in-out infinite alternate;
+  transition: opacity 1.6s ease, transform 1.6s ease, filter 1.6s ease;
+}
+
+@keyframes ambient-soft-glow {
+  0% {
+    opacity: 0.72;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+/* Frame adapts to the original photograph's natural proportions */
+.cover-portrait-frame {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(155deg, #1c0e1e 0%, #0d0810 100%);
+  border: 1px solid rgba(229, 183, 199, 0.24);
+  box-shadow: 
+    0 16px 38px -8px rgba(0, 0, 0, 0.85), 
+    0 0 26px rgba(84, 25, 58, 0.45),
+    inset 0 0 0 1px rgba(229, 183, 199, 0.12);
+  padding: 3px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Canvas wrapping image */
+.cover-portrait-canvas {
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius-xl) - 3px);
+  overflow: hidden;
+  position: relative;
+  background-color: #120c15;
+}
+
+/* Complete uncropped photograph: 100% width, natural height, object-fit contain, zero zoom */
+.cover-portrait-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Subtle dark gradient scrim at the lower portion of the photograph (leaving faces untouched) */
+.cover-photo-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 64%,
+    rgba(11, 8, 12, 0.45) 80%,
+    rgba(11, 8, 12, 0.92) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.8s ease;
+}
+
+/* Name overlaid directly onto lower portion of photograph */
+.cover-name-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.4rem 0.6rem 0.75rem;
+  z-index: 3;
+  text-align: center;
+  pointer-events: none;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.cover-name-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 5vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  color: var(--color-text-luminous);
+  margin: 0;
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.95),
+    0 4px 16px rgba(0, 0, 0, 0.85),
+    0 0 16px rgba(216, 139, 168, 0.35);
+}
+
+/* Graceful Fallback if image fails to load */
+.cover-portrait-img.is-hidden {
+  display: none !important;
+}
+
+.cover-fallback-portrait {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 982 / 1448;
+  background: radial-gradient(circle, rgba(59, 20, 41, 0.4) 0%, #0d0810 80%);
+}
+
+.cover-fallback-portrait.is-visible {
+  display: flex !important;
+}
+
+.cover-monogram-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 1px solid var(--color-rose-muted);
+  background: rgba(229, 183, 199, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  color: var(--color-rose-gold);
+  box-shadow: 0 4px 16px var(--color-rose-glow);
+}
+
+/* 2. Dedication Block: sits close to the photograph */
+.cover-dedication-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.75rem;
+  padding: 0 0.5rem;
+  flex-shrink: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Dedication Heading: The Queen of My Calm */
+.cover-dedication-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(0.74rem, 2.4vw, 0.85rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-rose-gold);
+  margin: 0 0 0.25rem 0;
+}
+
+/* Dedication Body */
+.cover-dedication-text {
+  font-family: var(--font-serif);
+  font-size: clamp(0.95rem, 3.1vw, 1.08rem);
+  font-style: italic;
+  color: var(--color-text-secondary);
+  line-height: 1.38;
+  max-width: 350px;
+  margin: 0;
+}
+
+/* 3. Primary Action Block & Button: Tap Here, Birthday Queen ♛ */
+.cover-action-block {
+  margin-top: 0.85rem;
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* ==========================================================================
+   BUTTON ATTENTION ANIMATION (Continuous idle pulse & travelling shimmer)
+   ========================================================================== */
+.btn-begin-memory {
+  appearance: none;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(229, 183, 199, 0.4);
+  background: linear-gradient(135deg, var(--color-burgundy-light) 0%, var(--color-burgundy-mid) 60%, var(--color-burgundy-dark) 100%);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: clamp(0.78rem, 2.5vw, 0.86rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.75rem;
+  min-height: 46px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  user-select: none;
+  /* Idle attention pulse: soft burgundy and rose glow gently pulses */
+  animation: btn-idle-pulse 4s ease-in-out infinite;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity 1.2s ease;
+}
+
+@keyframes btn-idle-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 
+      0 6px 20px -2px rgba(84, 25, 58, 0.65), 
+      0 2px 10px rgba(216, 139, 168, 0.25),
+      0 0 0 0 rgba(229, 183, 199, 0);
+    border-color: rgba(229, 183, 199, 0.38);
+  }
+  50% {
+    transform: scale(1.025);
+    box-shadow: 
+      0 8px 28px -2px rgba(84, 25, 58, 0.85), 
+      0 4px 16px rgba(216, 139, 168, 0.45),
+      0 0 16px 2px rgba(216, 139, 168, 0.28);
+    border-color: rgba(229, 183, 199, 0.68);
+  }
+}
+
+/* Subtle travelling shimmer passes across button surface every ~4.5 seconds */
+.btn-begin-memory::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 75%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 20%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(229, 183, 199, 0.22) 65%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  animation: btn-shimmer-sweep 4.5s ease-in-out infinite;
+}
+
+@keyframes btn-shimmer-sweep {
+  0%, 42% {
+    left: -130%;
+  }
+  75%, 100% {
+    left: 190%;
+  }
+}
+
+.btn-begin-memory:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 10px 28px -2px rgba(84, 25, 58, 0.85), 
+    0 4px 16px rgba(216, 139, 168, 0.45);
+  border-color: var(--color-rose-gold);
+}
+
+.btn-begin-memory:active {
+  transform: scale(0.975);
+}
+
+/* Crown Symbol inside Button */
+.btn-crown-symbol {
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin-left: 0.15rem;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+}
+
+/* Idle animation stops immediately upon tap */
+.stella-opening-cover.is-experience-started .btn-begin-memory {
+  animation: none !important;
+}
+.stella-opening-cover.is-experience-started .btn-begin-memory::before {
+  animation: none !important;
+  display: none !important;
+}
+
+/* Travelling LED highlight on the portrait frame */
+.cover-portrait-frame::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 280deg,
+    rgba(216, 139, 168, 0.4) 320deg,
+    rgba(255, 255, 255, 0.95) 345deg,
+    rgba(229, 183, 199, 0.75) 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.stella-opening-cover.stage-awakening .cover-portrait-frame::after {
+  opacity: 1;
+  animation: led-orbit 3.5s linear infinite;
+}
+
+@keyframes led-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   PHASE 3: THE EXPANSIVE UNIVERSE (Emerges at 7–11s)
+   ========================================================================== */
+.cover-universe {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 2.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 2.2s;
+  overflow: hidden;
+  background-color: #070408;
+}
+
+.cover-universe.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Restrained burgundy nebula atmosphere */
+.universe-nebula {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 36%, rgba(84, 25, 58, 0.52) 0%, rgba(34, 10, 24, 0.4) 36%, transparent 70%),
+    radial-gradient(circle at 28% 70%, rgba(59, 20, 41, 0.35) 0%, transparent 60%),
+    radial-gradient(circle at 75% 22%, rgba(216, 139, 168, 0.18) 0%, transparent 52%);
+  filter: blur(30px);
+  animation: nebula-breathe 14s ease-in-out infinite alternate;
+}
+
+@keyframes nebula-breathe {
+  0% { transform: scale(0.98); opacity: 0.82; }
+  100% { transform: scale(1.03); opacity: 1; }
+}
+
+/* Multi-layered starfields: deep, mid, near */
+.starfield-layer {
+  position: absolute;
+  inset: -20px;
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+.starfield-deep {
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 55px 75px, rgba(229, 183, 199, 0.8), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 95px 40px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 165px 125px, rgba(250, 238, 243, 0.9), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 235px 65px, rgba(216, 139, 168, 0.8), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 295px 185px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 325px 115px, rgba(229, 183, 199, 0.75), rgba(0,0,0,0));
+  background-size: 360px 240px;
+  opacity: 0.65;
+  animation: stars-drift-slow 65s linear infinite;
+}
+
+.starfield-mid {
+  background-image: 
+    radial-gradient(1.5px 1.5px at 50px 100px, rgba(255, 255, 255, 0.95), rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 130px 80px, rgba(229, 183, 199, 0.9), rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 200px 190px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 270px 40px, rgba(250, 238, 243, 0.85), rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 340px 150px, rgba(216, 139, 168, 0.85), rgba(0,0,0,0));
+  background-size: 380px 280px;
+  opacity: 0.78;
+  animation: stars-drift-mid 45s linear infinite;
+}
+
+.starfield-near {
+  background-image: 
+    radial-gradient(2px 2px at 80px 160px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 180px 50px, rgba(229, 183, 199, 1), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 300px 220px, #ffffff, rgba(0,0,0,0));
+  background-size: 400px 320px;
+  opacity: 0.85;
+  animation: stars-drift-near 32s linear infinite, stars-twinkle 4s ease-in-out infinite alternate;
+}
+
+@keyframes stars-drift-slow {
+  from { transform: translateY(0); }
+  to { transform: translateY(-120px); }
+}
+@keyframes stars-drift-mid {
+  from { transform: translateY(0) translateX(0); }
+  to { transform: translateY(-140px) translateX(-15px); }
+}
+@keyframes stars-drift-near {
+  from { transform: translateY(0) translateX(0); }
+  to { transform: translateY(-160px) translateX(20px); }
+}
+@keyframes stars-twinkle {
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 1; }
+}
+
+/* ==========================================================================
+   PHASE 4: PERSONAL DEDICATION SCREEN (Emerges at 11–16s)
+   ========================================================================== */
+.cover-interstitial {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 1.8s;
+}
+
+.cover-interstitial.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.interstitial-inner {
+  text-align: center;
+  max-width: 380px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  transition: opacity 1.8s ease, transform 1.8s ease;
+}
+
+.interstitial-badge {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-rose-gold);
+  opacity: 0.88;
+}
+
+.interstitial-names {
+  font-family: var(--font-serif);
+  font-size: clamp(1.85rem, 6vw, 2.55rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  text-shadow: 
+    0 0 24px rgba(216, 139, 168, 0.45),
+    0 2px 10px rgba(0, 0, 0, 0.8);
+  margin: 0;
+}
+
+.interstitial-progress-track {
+  width: 150px;
+  height: 2px;
+  background: rgba(229, 183, 199, 0.2);
+  border-radius: 9999px;
+  margin-top: 1.35rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.interstitial-progress-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-burgundy-light), var(--color-rose-gold), #ffffff);
+  box-shadow: 0 0 12px rgba(229, 183, 199, 0.85);
+  border-radius: 9999px;
+  transition: width 4.2s cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+
+.stella-opening-cover.stage-progress-animating .interstitial-progress-bar {
+  width: 100%;
+}
+
+/* ==========================================================================
+   COORDINATED 20-SECOND CINEMATIC OPENING STAGES
+   ========================================================================== */
+
+/* Phase 1: Awakening (0–3s) — LED frame glows, subtle slow zoom starts */
+.stella-opening-cover.stage-awakening .cover-action-block {
+  opacity: 0;
+  transform: translateY(12px) scale(0.96);
+  pointer-events: none;
+  transition: opacity 2.8s ease, transform 2.8s ease;
+}
+
+.stella-opening-cover.stage-awakening .cover-portrait-wrapper {
+  transform: scale(1.02);
+  transition: transform 7s cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+
+.stella-opening-cover.stage-awakening .cover-portrait-glow {
+  opacity: 1;
+  filter: blur(22px);
+  transform: scale(1.08);
+  transition: opacity 3s ease, transform 3s ease, filter 3s ease;
+}
+
+.stella-opening-cover.stage-awakening .cover-portrait-img {
+  transform: scale(1.035);
+  transition: transform 7s cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+
+/* Phase 2: Sequential Dissolution (3–7s) in exact specified order: */
+
+/* 1. Button dissolves (3s) */
+.stella-opening-cover.stage-dissolve-button .cover-action-block {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 2. Dedication fades away (4.2s) */
+.stella-opening-cover.stage-dissolve-dedication .cover-dedication-text {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* 3. "The Queen of My Calm" fades away (5.4s) */
+.stella-opening-cover.stage-dissolve-heading .cover-dedication-heading {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* 4. "Stella Aaliyah Dinar" disappears from photograph (6.4s) */
+.stella-opening-cover.stage-dissolve-name .cover-name-overlay,
+.stella-opening-cover.stage-dissolve-name .cover-photo-scrim {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* Portrait frame remains illuminated briefly before surrounding interface dissolves */
+.stella-opening-cover.stage-universe-emerges .cover-card-container {
+  opacity: 0;
+  transform: scale(0.97);
+  pointer-events: none;
+  transition: opacity 1.8s ease, transform 1.8s ease;
+}
+
+/* Phase 5: Enter the memories (16–20s) */
+.stella-opening-cover.stage-enter-memories .cover-interstitial .interstitial-inner {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.stella-opening-cover.stage-enter-memories .cover-universe {
+  opacity: 0;
+  transition: opacity 3.5s ease;
+}
+
+/* Complete (20s) — Revealed and dismissed */
+.stella-opening-cover.is-dismissed {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  display: none !important;
+}
+
+/* ==========================================================================
+   STAGE B: DISCREET FLOATING AUDIO CONTROLLER
+   ========================================================================== */
+.stella-audio-pill {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 90;
+  background: rgba(26, 16, 30, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  padding: 0.45rem 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+}
+
+.stella-audio-pill.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.stella-audio-pill:hover {
+  border-color: var(--color-rose-muted);
+  box-shadow: 0 10px 28px rgba(84, 25, 58, 0.4);
+}
+
+.audio-equalizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 14px;
+}
+
+.audio-bar {
+  width: 2.5px;
+  background-color: var(--color-rose-gold);
+  border-radius: 1px;
+  height: 4px;
+  transition: height 150ms ease;
+}
+
+.stella-audio-pill.is-playing .audio-bar:nth-child(1) {
+  animation: sound-wave 1.2s infinite ease-in-out;
+}
+.stella-audio-pill.is-playing .audio-bar:nth-child(2) {
+  animation: sound-wave 0.85s infinite ease-in-out 0.2s;
+}
+.stella-audio-pill.is-playing .audio-bar:nth-child(3) {
+  animation: sound-wave 1.05s infinite ease-in-out 0.4s;
+}
+
+@keyframes sound-wave {
+  0%, 100% { height: 4px; }
+  50% { height: 14px; }
+}
+
+.audio-label {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.audio-toggle-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-rose-gold);
+}
+
+/* ==========================================================================
+   MAIN MEMORY EXPERIENCE (REVEALED AFTER 7 SECONDS)
+   ========================================================================== */
+.stella-shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.stella-memory-body {
+  padding: 1.5rem 1.25rem 3.5rem;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stella-memory-body.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   SECTION ONE — PORTRAIT INTRO: Aaliyah, at 22
+   ========================================================================== */
+.memory-portrait-intro-section {
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+  position: relative;
+}
+
+.portrait-intro-header {
+  margin-bottom: 1.5rem;
+}
+
+.portrait-intro-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.3rem, 7vw, 3.4rem);
+  font-weight: 500;
+  color: var(--color-text-luminous);
+  line-height: 1.12;
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-shadow: 
+    0 2px 18px rgba(216, 139, 168, 0.4),
+    0 0 38px rgba(84, 25, 58, 0.45);
+}
+
+/* Outer frame wrapper to anchor the subtle ambient backlight glow */
+.portrait-intro-frame-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+/* Atmospheric subtle backlight breathing behind portrait */
+.portrait-intro-glow {
+  position: absolute;
+  inset: -14px;
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(84, 25, 58, 0.6) 0%,
+    rgba(216, 139, 168, 0.25) 45%,
+    transparent 72%
+  );
+  border-radius: calc(var(--radius-xl) + 14px);
+  filter: blur(22px);
+  pointer-events: none;
+  z-index: 0;
+  animation: intro-glow-breathe 8s ease-in-out infinite alternate;
+}
+
+@keyframes intro-glow-breathe {
+  0% {
+    opacity: 0.65;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+/* Premium editorial frame container */
+.portrait-intro-frame-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(155deg, #1d0f1f 0%, #0d0810 100%);
+  border: 1px solid rgba(229, 183, 199, 0.26);
+  box-shadow: 
+    0 20px 48px -8px rgba(0, 0, 0, 0.88), 
+    0 0 28px rgba(84, 25, 58, 0.38),
+    inset 0 0 0 1px rgba(229, 183, 199, 0.12);
+  padding: 5px;
+  overflow: hidden;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.portrait-intro-frame-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(229, 183, 199, 0.42);
+  box-shadow: 
+    0 24px 54px -8px rgba(0, 0, 0, 0.92), 
+    0 0 36px rgba(84, 25, 58, 0.55),
+    inset 0 0 0 1px rgba(229, 183, 199, 0.2);
+}
+
+.portrait-intro-canvas {
+  width: 100%;
+  border-radius: calc(var(--radius-xl) - 4px);
+  overflow: hidden;
+  position: relative;
+  background-color: #120c15;
+}
+
+/* Complete original portrait: 100% width, natural height, uncropped, zero zoom */
+.portrait-intro-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Natural elegant transition into memory chapters */
+.portrait-intro-transition {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 320px;
+  margin: 2.25rem auto 0;
+  opacity: 0.7;
+}
+
+.intro-transition-line {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(229, 183, 199, 0.35), transparent);
+}
+
+.intro-transition-gem {
+  color: var(--color-rose-gold);
+  font-size: 0.82rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 6px rgba(216, 139, 168, 0.5));
+}
+
+/* Decorative Divider */
+.memory-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 2rem 0;
+  opacity: 0.6;
+}
+
+.memory-divider-line {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border-subtle), transparent);
+}
+
+.memory-divider-gem {
+  color: var(--color-rose-gold);
+}
+
+/* Intimate Dedication Card Directly Beneath Portrait: The Queen of My Calm */
+.memory-dedication-card {
+  max-width: 440px;
+  margin: 1.15rem auto 2rem;
+  background: linear-gradient(155deg, rgba(29, 15, 31, 0.78) 0%, rgba(14, 8, 16, 0.92) 100%);
+  border: 1px solid rgba(229, 183, 199, 0.18);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem 1.4rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 12px 32px -6px rgba(0, 0, 0, 0.75), 
+    0 0 22px rgba(84, 25, 58, 0.22),
+    inset 0 1px 0 rgba(229, 183, 199, 0.08);
+  text-align: center;
+}
+
+.memory-dedication-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-rose-gold), transparent);
+}
+
+.dedication-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--color-rose-gold);
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+.dedication-quote-text {
+  font-family: var(--font-serif);
+  font-size: 1.06rem;
+  line-height: 1.68;
+  color: var(--color-text-primary);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+@media (min-width: 480px) {
+  .memory-dedication-card {
+    padding: 1.6rem 2rem;
+    margin: 1.35rem auto 2.25rem;
+  }
+  .dedication-title {
+    font-size: 1.35rem;
+  }
+  .dedication-quote-text {
+    font-size: 1.14rem;
+    line-height: 1.72;
+  }
+}
+
+/* Editorial Photo Gallery */
+/* ==========================================================================
+   SECTION TWO — HER DAY, HER MOMENTS (PHONE PHOTO & VIDEO GALLERY)
+   ========================================================================== */
+.memory-gallery-section {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.gallery-section-header {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.gallery-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.85rem, 6vw, 2.35rem);
+  font-weight: 500;
+  color: var(--color-text-luminous);
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 14px rgba(216, 139, 168, 0.35);
+}
+
+.birthday-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: #0b070d;
+  box-shadow: 0 14px 36px -10px rgba(0, 0, 0, 0.8), 0 0 22px rgba(84, 25, 58, 0.2);
+  border: 1px solid rgba(229, 183, 199, 0.14);
+}
+
+.birthday-gallery-grid:empty {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .birthday-gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    border-radius: var(--radius-lg);
+  }
+}
+
+@media (min-width: 900px) {
+  .birthday-gallery-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+}
+
+/* Individual Native Gallery Item */
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: #150d17;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.gallery-item:hover {
+  filter: brightness(1.08);
+}
+
+.gallery-item:active {
+  transform: scale(0.97);
+}
+
+.gallery-item:focus-visible {
+  outline: 2px solid var(--color-rose-gold);
+  outline-offset: -2px;
+  z-index: 2;
+}
+
+/* Photo Thumbnail: fills grid cell naturally, cropped cleanly */
+.gallery-item-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item:hover .gallery-item-media {
+  transform: scale(1.03);
+}
+
+/* Video Thumbnail Styling & Discreet Corner Badge */
+.gallery-item-video {
+  background-color: #180e1c;
+}
+
+.gallery-video-badge {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  padding: 2px 6px;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.gallery-video-badge svg {
+  width: 10px;
+  height: 10px;
+  fill: currentColor;
+}
+
+/* Subtle Reserved Memory Space (For unuploaded items awaiting media) */
+.gallery-item.is-reserved {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #160e19 0%, #0e0711 100%);
+  border: 1px solid rgba(229, 183, 199, 0.06);
+}
+
+.reserved-slot-icon {
+  width: 20px;
+  height: 20px;
+  color: rgba(229, 183, 199, 0.2);
+  transition: color 0.2s ease;
+}
+
+.gallery-item.is-reserved:hover .reserved-slot-icon {
+  color: rgba(229, 183, 199, 0.45);
+}
+
+
+
+/* ==========================================================================
+   IMMERSIVE FULL-SCREEN MEMORY VIEWER (MODAL)
+   ========================================================================== */
+body.gallery-viewer-open {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(9, 6, 10, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-lightbox:not([hidden]) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Top Bar: Discreet Counter & Close Control */
+.lightbox-top-bar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(env(safe-area-inset-top, 12px) + 8px) 16px 10px;
+  width: 100%;
+}
+
+.lightbox-counter {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--color-rose-gold);
+}
+
+.lightbox-btn-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(229, 183, 199, 0.2);
+  color: var(--color-text-luminous);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lightbox-btn-close:active {
+  transform: scale(0.92);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Media Viewport Canvas */
+.lightbox-stage {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: pan-y;
+  outline: none;
+}
+
+.lightbox-media-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 8px 12px calc(env(safe-area-inset-bottom, 12px) + 12px);
+  box-sizing: border-box;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.18s ease;
+}
+
+/* Photo in viewer: uncropped, original aspect ratio, max size against dark bg */
+.lightbox-active-img {
+  max-width: 96vw;
+  max-height: 84vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.95);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Video in viewer: responsive container with working native playback controls */
+.lightbox-active-video {
+  max-width: 96vw;
+  max-height: 84vh;
+  border-radius: 6px;
+  background-color: #000000;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.95);
+  outline: none;
+}
+
+/* Reserved Slot Notice in Viewer */
+.lightbox-reserved-notice {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: rgba(29, 15, 31, 0.6);
+  border: 1px solid rgba(229, 183, 199, 0.18);
+  border-radius: var(--radius-lg);
+  max-width: 320px;
+}
+
+.lightbox-reserved-gem {
+  color: var(--color-rose-gold);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.lightbox-reserved-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-text-luminous);
+  margin-bottom: 0.35rem;
+}
+
+.lightbox-reserved-sub {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+}
+
+/* Minimal Nav Controls */
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(25, 14, 27, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(229, 183, 199, 0.22);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s, transform 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lightbox-nav-prev {
+  left: 12px;
+}
+
+.lightbox-nav-next {
+  right: 12px;
+}
+
+.lightbox-nav-btn:hover {
+  background: rgba(45, 20, 48, 0.85);
+  border-color: rgba(229, 183, 199, 0.4);
+}
+
+.lightbox-nav-btn:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+@media (max-width: 520px) {
+  .lightbox-nav-btn {
+    width: 38px;
+    height: 38px;
+    background: rgba(15, 8, 17, 0.55);
+  }
+  .lightbox-nav-prev { left: 8px; }
+  .lightbox-nav-next { right: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox-media-container,
+  .gallery-lightbox,
+  .gallery-item {
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   SECTION THREE — THE CLOSING MOMENT
+   Quiet, elegant closing section: “And this is only one chapter of you.”
+   ========================================================================== */
+.memory-closing-section {
+  text-align: center;
+  padding: clamp(3.25rem, 9vw, 5rem) 1.5rem clamp(2.25rem, 6vw, 3.25rem);
+  background: radial-gradient(circle at 50% 28%, rgba(38, 12, 28, 0.42) 0%, rgba(6, 3, 7, 0.98) 78%);
+  background-color: #060307;
+  border: 1px solid rgba(229, 183, 199, 0.12);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.85), 0 0 28px rgba(84, 25, 58, 0.14);
+  position: relative;
+  margin-top: 2.25rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.closing-quote-wrapper {
+  max-width: 520px;
+  margin: 0 auto clamp(2.5rem, 7vw, 3.5rem);
+  padding: 0 1rem;
+}
+
+.closing-single-line {
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 4.5vw, 1.85rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-text-luminous);
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 18px rgba(216, 139, 168, 0.32);
+  margin: 0;
+  opacity: 0.96;
+}
+
+/* WarStreet Signature naturally inside memory experience */
+.closing-warstreet-signature {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(229, 183, 199, 0.1);
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.closing-warstreet-signature span {
+  color: var(--color-rose-gold);
+  font-weight: 600;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .cover-portrait-img,
+  .cover-portrait-glow {
+    animation: none !important;
+    transform: none !important;
+  }
+}
