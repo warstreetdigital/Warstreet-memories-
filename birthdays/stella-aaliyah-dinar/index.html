@@ -144,13 +144,13 @@
             <div class="portrait-intro-frame-card">
               <div class="portrait-intro-canvas" data-photo-slot="hero" data-caption="Aaliyah, at 22">
                 <img 
-                  src="./Stella-portrait.webp" 
+                  src="/images/stella-portrait.webp" 
                   alt="Aaliyah, at 22" 
                   class="portrait-intro-img" 
                   loading="eager"
                   fetchpriority="high"
                   decoding="async"
-                  onerror="if (this.src.indexOf('Stella-portrait.webp') !== -1 && !this.dataset.fallbackTried) { this.dataset.fallbackTried = '1'; this.src = '/Stella-portrait.webp'; } else { this.classList.add('is-hidden'); }"
+                  onerror="this.classList.add('is-hidden');"
                 />
               </div>
             </div>
