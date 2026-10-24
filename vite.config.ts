@@ -18,6 +18,7 @@ export default defineConfig(() => {
 
               // Ensure canonical trailing-slash for directory paths so dev server serves correct index.html
               const directoryRoutes = [
+                '/birthdays/bryan-mabani',
                 '/birthdays/stella-aaliyah-dinar',
                 '/birthdays',
                 '/weddings',
@@ -88,6 +89,7 @@ export default defineConfig(() => {
           roora: path.resolve(import.meta.dirname, 'roora/index.html'),
           loveFamily: path.resolve(import.meta.dirname, 'love-family/index.html'),
           stella: path.resolve(import.meta.dirname, 'birthdays/stella-aaliyah-dinar/index.html'),
+          bryan: path.resolve(import.meta.dirname, 'birthdays/bryan-mabani/index.html'),
         },
       },
     },
