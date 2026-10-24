@@ -1,5 +1,6 @@
 # Cloudflare Pages Routing Configuration
 /birthdays/stella-aaliyah-dinar/images/*   /images/:splat                     200
+/birthdays/bryan-mabani                    /birthdays/bryan-mabani/           301
 /birthdays/stella-aaliyah-dinar            /birthdays/stella-aaliyah-dinar/   301
 /birthdays                                 /birthdays/                        301
 /weddings                                  /weddings/                         301
