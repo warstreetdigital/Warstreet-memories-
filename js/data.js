@@ -44,6 +44,20 @@ const MEMORY_CATEGORIES = [
         isLive: true,
         status: "active",
         createdAt: "2026-10-15"
+      },
+      {
+        id: "bryan-mabani",
+        slug: "bryan-mabani",
+        recipientName: "Bryan Mabani",
+        category: "birthdays",
+        categoryName: "Birthday Memory",
+        title: "Bryan Mabani",
+        subtitle: "27th Birthday & Anniversary Keepsake",
+        route: "/birthdays/bryan-mabani/",
+        fullUrl: "https://warstreetmemories.enterharare.online/birthdays/bryan-mabani/",
+        isLive: true,
+        status: "active",
+        createdAt: "2026-10-25"
       }
     ]
   },
