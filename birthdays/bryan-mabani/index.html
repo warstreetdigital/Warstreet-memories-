@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <title>Bryan Mabani — 27th Birthday &amp; 1st Anniversary Keepsake</title>
+    <meta name="description" content="Celebrating the man I love on his 27th birthday and our first year together. Bryan Mabani, from May Tita." />
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://warstreetmemories.enterharare.online/birthdays/bryan-mabani/" />
+    <meta property="og:title" content="Bryan Mabani — 27th Birthday &amp; 1st Anniversary Keepsake" />
+    <meta property="og:description" content="Celebrating the man I love on his 27th birthday and our first year together. Bryan Mabani, from May Tita." />
+    <meta property="og:image" content="https://pub-e10a28ca38cf452da437555e0f90e288.r2.dev/warstreetmemories/2026%20Memories/Birthdays/May%20to%20Bryan/bryan_01.webp" />
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bryan Mabani — 27th Birthday &amp; 1st Anniversary Keepsake" />
+    <meta name="twitter:description" content="Celebrating the man I love on his 27th birthday and our first year together. Bryan Mabani, from May Tita." />
+    <meta name="twitter:image" content="https://pub-e10a28ca38cf452da437555e0f90e288.r2.dev/warstreetmemories/2026%20Memories/Birthdays/May%20to%20Bryan/bryan_01.webp" />
+
+    <!-- Google Fonts: Cormorant Garamond (Serif), Montserrat & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    
+    <!-- Cinematic Near-Black Keepsake Stylesheet -->
+    <link rel="stylesheet" href="/css/stella-memory.css" />
+
+    <style>
+      /* Refined Letter Button & Modal Styles */
+      .letter-action-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem;
+      }
+
+      .btn-read-letter {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.65rem;
+        padding: 0.9rem 1.85rem;
+        border-radius: var(--radius-pill);
+        background: linear-gradient(135deg, rgba(84, 25, 58, 0.45) 0%, rgba(34, 10, 24, 0.75) 100%);
+        border: 1px solid rgba(229, 183, 199, 0.35);
+        color: #fbf5f8;
+        font-family: var(--font-heading);
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.6), 0 0 16px rgba(216, 139, 168, 0.22);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+
+      .btn-read-letter:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.75), 0 0 22px rgba(229, 183, 199, 0.38);
+        border-color: rgba(229, 183, 199, 0.6);
+      }
+
+      .btn-read-letter:active {
+        transform: scale(0.98);
+      }
+
+      /* Modal Overlay */
+      .letter-modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 10050;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.25rem;
+        background: rgba(7, 5, 8, 0.88);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        opacity: 1;
+        transition: opacity 0.25s ease;
+      }
+
+      .letter-modal-backdrop[hidden] {
+        display: none !important;
+      }
+
+      .letter-modal-backdrop-click {
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+      }
+
+      .letter-modal-card {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 580px;
+        max-height: 86vh;
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(175deg, #160e19 0%, #0d0810 100%);
+        border: 1px solid rgba(229, 183, 199, 0.24);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.9), 0 0 35px rgba(84, 25, 58, 0.3);
+        overflow: hidden;
+      }
+
+      .letter-modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 10;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(229, 183, 199, 0.2);
+        border-radius: 50%;
+        color: var(--color-rose-gold);
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+        touch-action: manipulation;
+      }
+
+      .letter-modal-close:hover {
+        background: rgba(255, 255, 255, 0.12);
+        transform: rotate(90deg);
+      }
+
+      .letter-modal-header {
+        padding: 1.85rem 1.75rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(229, 183, 199, 0.12);
+      }
+
+      .letter-modal-badge {
+        display: inline-block;
+        font-family: var(--font-heading);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--color-rose-muted);
+        margin-bottom: 0.5rem;
+      }
+
+      .letter-modal-title {
+        font-family: var(--font-serif);
+        font-size: clamp(1.4rem, 4.5vw, 1.85rem);
+        font-weight: 500;
+        color: var(--color-text-luminous);
+        line-height: 1.25;
+        margin: 0;
+      }
+
+      .letter-modal-divider {
+        width: 44px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--color-rose-gold), transparent);
+        margin: 0.85rem auto 0;
+      }
+
+      .letter-modal-body {
+        padding: 1.6rem 1.85rem 2.2rem;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        font-family: var(--font-body);
+        font-size: 0.98rem;
+        line-height: 1.8;
+        color: #eddfe6;
+      }
+
+      .letter-paragraph {
+        margin: 0 0 1.25rem 0;
+        text-align: left;
+      }
+
+      .letter-paragraph:last-of-type {
+        margin-bottom: 1.5rem;
+      }
+
+      .letter-signoff {
+        margin: 1.5rem 0 0;
+        font-family: var(--font-heading);
+        font-size: 1.08rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: var(--color-rose-gold);
+        text-align: center;
+      }
+
+      body.letter-modal-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+      }
+
+      /* ======================================================================
+         FIVE-PHOTO PORTRAIT SLIDESHOW STYLES (BRYAN SECTION 1)
+         ====================================================================== */
+      .portrait-slideshow-viewport {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1152 / 1536;
+        border-radius: calc(var(--radius-xl) - 4px);
+        overflow: hidden;
+        background-color: #120c15;
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: pan-y pinch-zoom;
+        outline: none;
+      }
+
+      .portrait-slideshow-viewport:focus-visible {
+        box-shadow: 0 0 0 2px var(--color-rose-gold);
+      }
+
+      .portrait-slides-track {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .portrait-slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: scale(0.99);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #120c15;
+      }
+
+      .portrait-slide.is-active {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+        z-index: 2;
+      }
+
+      .portrait-slide-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      /* Subtle Non-Obstructing Floating Pill Indicator */
+      .portrait-slideshow-badge {
+        position: absolute;
+        bottom: 0.65rem;
+        right: 0.65rem;
+        z-index: 4;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.28rem 0.65rem;
+        border-radius: var(--radius-pill);
+        background: rgba(14, 9, 16, 0.75);
+        border: 1px solid rgba(229, 183, 199, 0.24);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        color: rgba(251, 245, 248, 0.92);
+        font-family: var(--font-heading);
+        font-size: 0.68rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      /* Accessible Slideshow Controls Bar Just Below Portrait */
+      .portrait-slideshow-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 0.4rem 0.35rem;
+        position: relative;
+        z-index: 5;
+      }
+
+      .slideshow-control-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(229, 183, 199, 0.22);
+        color: var(--color-rose-gold);
+        border-radius: var(--radius-pill);
+        cursor: pointer;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        transition: all 0.2s ease;
+      }
+
+      .slideshow-control-btn:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(229, 183, 199, 0.45);
+        transform: translateY(-1px);
+      }
+
+      .slideshow-control-btn:active {
+        transform: scale(0.96);
+      }
+
+      .slideshow-nav-btn {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+      }
+
+      .slideshow-play-toggle-btn {
+        gap: 0.45rem;
+        padding: 0.38rem 0.95rem;
+        font-family: var(--font-heading);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: linear-gradient(135deg, rgba(84, 25, 58, 0.45) 0%, rgba(34, 10, 24, 0.65) 100%);
+        border: 1px solid rgba(229, 183, 199, 0.35);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 0 10px rgba(216, 139, 168, 0.15);
+      }
+
+      .slideshow-play-toggle-btn.is-playing {
+        border-color: rgba(229, 183, 199, 0.65);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 16px rgba(229, 183, 199, 0.3);
+      }
+
+      .slideshow-dots {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+      }
+
+      .slideshow-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: rgba(229, 183, 199, 0.3);
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        touch-action: manipulation;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .slideshow-dot:hover {
+        background: rgba(229, 183, 199, 0.6);
+        transform: scale(1.25);
+      }
+
+      .slideshow-dot.is-active {
+        width: 20px;
+        border-radius: 4px;
+        background: var(--color-rose-gold);
+        box-shadow: 0 0 8px rgba(229, 183, 199, 0.55);
+      }
+
+      .is-visually-hidden {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body class="stella-experience">
+
+    <!-- Ambient Subtle Glow Canvas -->
+    <div class="stella-ambient-glow" aria-hidden="true"></div>
+
+    <!-- ====================================================================
+         LANDING PAGE: THE CINEMATIC OPENING COVER (ONE MOBILE VIEWPORT FIT)
+         ==================================================================== -->
+    <aside id="bryan-opening-cover" class="stella-opening-cover" aria-label="Bryan Mabani Birthday Keepsake">
+      <div class="cover-card-container">
+
+        <!-- 1. Dominant Photograph Centerpiece with Integrated Name Overlay -->
+        <div class="cover-portrait-wrapper">
+          <div class="cover-portrait-glow" aria-hidden="true"></div>
+          <div class="cover-portrait-frame">
+            <div class="cover-portrait-canvas" data-photo-slot="cover" data-caption="Bryan Mabani">
+              <img 
+                src="https://pub-e10a28ca38cf452da437555e0f90e288.r2.dev/warstreetmemories/2026%20Memories/Birthdays/May%20to%20Bryan/bryan_01.webp" 
+                alt="Bryan Mabani" 
+                class="cover-portrait-img" 
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                onerror="this.classList.add('is-hidden'); if(this.nextElementSibling) this.nextElementSibling.classList.add('is-visible');"
+              />
+              <div class="cover-fallback-portrait" aria-hidden="true">
+                <div class="cover-monogram-circle">BM</div>
+              </div>
+
+              <!-- Subtle dark scrim & integrated name overlay in lower portion of photo -->
+              <div class="cover-photo-scrim" aria-hidden="true"></div>
+              <div class="cover-name-overlay">
+                <h1 class="cover-name-title">Bryan Mabani</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Dedication Section (Heading & Body) -->
+        <div class="cover-dedication-block">
+          <h2 class="cover-dedication-heading">
+            Happy 27th Birthday, My Love
+          </h2>
+
+          <p class="cover-dedication-text">
+            Celebrating the man I love, our first anniversary together, and every precious moment with you.
+          </p>
+        </div>
+
+        <!-- 3. Primary Action Button -->
+        <div class="cover-action-block">
+          <button type="button" id="btn-begin-memory" class="btn-begin-memory" aria-label="Tap Here, Birthday King">
+            <span>Tap Here, Birthday King</span>
+            <span class="btn-crown-symbol" aria-hidden="true">♛</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Universe & Starfield Canvas -->
+      <div id="cover-universe" class="cover-universe" aria-hidden="true">
+        <div class="universe-nebula"></div>
+        <div class="starfield-layer starfield-deep"></div>
+        <div class="starfield-layer starfield-mid"></div>
+        <div class="starfield-layer starfield-near"></div>
+      </div>
+
+      <!-- 4. Cinematic Interstitial Screen -->
+      <div id="cover-interstitial" class="cover-interstitial" aria-hidden="true">
+        <div class="interstitial-inner">
+          <span class="interstitial-badge">A memory from</span>
+          <h2 class="interstitial-names">May Tita to Bryan Mabani</h2>
+          <div class="interstitial-progress-track" aria-hidden="true">
+            <div class="interstitial-progress-bar"></div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ====================================================================
+         DISCREET FLOATING AUDIO CONTROLLER (Activates with the experience)
+         ==================================================================== -->
+    <div id="audio-pill" class="stella-audio-pill" role="button" tabindex="0" aria-label="Toggle birthday audio playback" title="Toggle audio">
+      <div class="audio-equalizer" aria-hidden="true">
+        <span class="audio-bar"></span>
+        <span class="audio-bar"></span>
+        <span class="audio-bar"></span>
+      </div>
+      <span id="audio-status-label" class="audio-label">Audio</span>
+      <svg class="audio-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/>
+      </svg>
+    </div>
+
+    <!-- ====================================================================
+         MAIN BIRTHDAY MEMORY EXPERIENCE (REVEALED AFTER OPENING SEQUENCE)
+         ==================================================================== -->
+    <div class="stella-shell">
+
+      <main id="bryan-memory-body" class="stella-memory-body" role="main">
+
+        <!-- ================================================================
+             SECTION ONE — PORTRAIT INTRO: Bryan, at 27
+             ================================================================ -->
+        <section class="memory-portrait-intro-section" aria-labelledby="heading-bryan-27">
+          <header class="portrait-intro-header">
+            <h2 id="heading-bryan-27" class="portrait-intro-title">
+              Bryan, at 27
+            </h2>
+          </header>
+
+          <div class="portrait-intro-frame-wrapper">
+            <div class="portrait-intro-glow" aria-hidden="true"></div>
+            <div class="portrait-intro-frame-card">
+              <!-- Five-Photo Slideshow Viewport -->
+              <div id="portrait-slideshow-viewport" class="portrait-slideshow-viewport" role="region" aria-roledescription="carousel" aria-label="Bryan Mabani 5-photo portrait series" tabindex="0">
+                <div class="portrait-slides-track">
+                  <!-- Photo 1: may_11.webp (Initial Active Portrait) -->
+                  <div class="portrait-slide is-active" data-slide-index="0" role="group" aria-roledescription="slide" aria-label="Photo 1 of 5">
+                    <img 
+                      src="https://pub-e10a28ca38cf452da437555e0f90e288.r2.dev/warstreetmemories/2026%20Memories/Birthdays/May%20to%20Bryan/may_11.webp" 
+                      alt="Bryan, at 27 — photo 1" 
+                      class="portrait-slide-img" 
+                      loading="eager"
+                      fetchpriority="high"
+                      decoding="async"
+                    />
+                  </div>
+                  <!-- Photo 2: may_12.webp -->
+                  <div class="portrait-slide" data-slide-index="1" role="group" aria-roledescription="slide" aria-label="Photo 2 of 5">
+                    <img 
+                      src="https://pub-e10a28ca38cf452da437555e0f90e288.r2.dev/warstreetmemories/2026%20Memories/Birthdays/May%20to%20Bryan/may_12.webp" 
+                      alt="Bryan, at 27 — photo 2" 
+                      class="portrait-slide-img" 
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <!-- Photo 3: may_13.webp -->
+                  <div class="portrait-slide" data-slide-index="2" role="group" aria-roledescription="slide" aria-label="Photo 3 of 5">
+                    <img 
+                      src="https://pub-e10a28ca38cf452da437555e0f90e288.r2.dev/warstreetmemories/2026%20Memories/Birthdays/May%20to%20Bryan/may_13.webp" 
+                      alt="Bryan, at 27 — photo 3" 
+                      class="portrait-slide-img" 
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <!-- Photo 4: may_14.webp -->
+                  <div class="portrait-slide" data-slide-index="3" role="group" aria-roledescription="slide" aria-label="Photo 4 of 5">
+                    <img 
+                      src="https://pub-e10a28ca38cf452da437555e0f90e288.r2.dev/warstreetmemories/2026%20Memories/Birthdays/May%20to%20Bryan/may_14.webp" 
+                      alt="Bryan, at 27 — photo 4" 
+                      class="portrait-slide-img" 
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <!-- Photo 5: may_15.webp -->
+                  <div class="portrait-slide" data-slide-index="4" role="group" aria-roledescription="slide" aria-label="Photo 5 of 5">
+                    <img 
+                      src="https://pub-e10a28ca38cf452da437555e0f90e288.r2.dev/warstreetmemories/2026%20Memories/Birthdays/May%20to%20Bryan/may_15.webp" 
+                      alt="Bryan, at 27 — photo 5" 
+                      class="portrait-slide-img" 
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+
+                <!-- Subtle Non-Obstructing Floating Pill Indicator -->
+                <div class="portrait-slideshow-badge" aria-hidden="true">
+                  <span id="slideshow-badge-index">1 / 5</span>
+                </div>
+              </div>
+
+              <!-- Controls Just Below Portrait (Zero Face Obstruction) -->
+              <div class="portrait-slideshow-controls" aria-label="Slideshow controls">
+                <!-- Previous Button -->
+                <button type="button" class="slideshow-control-btn slideshow-nav-btn" id="slideshow-btn-prev" aria-label="Previous photo">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+
+                <!-- Visible Play/Pause Toggle Control -->
+                <button type="button" class="slideshow-control-btn slideshow-play-toggle-btn" id="slideshow-btn-toggle" aria-label="Play slideshow" aria-pressed="false">
+                  <svg class="slideshow-icon-play" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+                  <svg class="slideshow-icon-pause is-visually-hidden" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                  <span id="slideshow-label">Play</span>
+                </button>
+
+                <!-- Five Position Indicators (Dots) -->
+                <div class="slideshow-dots" role="tablist" aria-label="Choose slide">
+                  <button type="button" role="tab" class="slideshow-dot is-active" data-dot-index="0" aria-label="Photo 1 of 5" aria-selected="true"></button>
+                  <button type="button" role="tab" class="slideshow-dot" data-dot-index="1" aria-label="Photo 2 of 5" aria-selected="false"></button>
+                  <button type="button" role="tab" class="slideshow-dot" data-dot-index="2" aria-label="Photo 3 of 5" aria-selected="false"></button>
+                  <button type="button" role="tab" class="slideshow-dot" data-dot-index="3" aria-label="Photo 4 of 5" aria-selected="false"></button>
+                  <button type="button" role="tab" class="slideshow-dot" data-dot-index="4" aria-label="Photo 5 of 5" aria-selected="false"></button>
+                </div>
+
+                <!-- Next Button -->
+                <button type="button" class="slideshow-control-btn slideshow-nav-btn" id="slideshow-btn-next" aria-label="Next photo">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Message Card Directly Beneath Section 1 Portrait: Baba Zuva, My Forever -->
+        <section class="memory-dedication-card" aria-label="A Love Note from May">
+          <h3 class="dedication-title">Baba Zuva, My Forever</h3>
+          
+          <p class="dedication-quote-text">
+            Celebrating the man I love, our first anniversary together, and a love that grows deeper with every passing day.
+          </p>
+
+          <!-- Letter Button to Open Full Note in Modal -->
+          <div class="letter-action-wrapper">
+            <button type="button" id="btn-open-letter" class="btn-read-letter" aria-haspopup="dialog" aria-expanded="false" aria-controls="letter-modal">
+              <span>Read May's Letter 💌</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Transition into Memory Chapters -->
+        <div class="memory-divider" aria-hidden="true">
+          <span class="memory-divider-line"></span>
+          <span class="memory-divider-gem">✦</span>
+          <span class="memory-divider-line"></span>
+        </div>
+
+        <!-- ================================================================
+             SECTION TWO — HIS DAY, HIS MOMENTS (PHOTO GALLERY)
+             ================================================================ -->
+        <section class="memory-gallery-section" aria-labelledby="gallery-heading">
+          <header class="gallery-section-header">
+            <h3 id="gallery-heading" class="gallery-section-title">
+              His Day, His Moments
+            </h3>
+          </header>
+
+          <!-- Native Mobile-First 3-Column Phone Gallery Grid -->
+          <div id="birthday-gallery-grid" class="birthday-gallery-grid" role="region" aria-label="Bryan Mabani 27th birthday memories">
+            <!-- Dynamically populated and maintained by initBirthdayGallery() -->
+          </div>
+        </section>
+
+        <!-- ================================================================
+             SECTION THREE — THE CLOSING MOMENT
+             ================================================================ -->
+        <section class="memory-closing-section" aria-label="The Closing Moment">
+          <div class="closing-quote-wrapper">
+            <p class="closing-single-line">
+              &ldquo;27 years of life, one year of us, and a lifetime still to write.&rdquo;
+            </p>
+          </div>
+
+          <!-- Discreet Signature naturally inside memory experience -->
+          <div class="closing-warstreet-signature">
+            Powered by <span>WarStreet Experience Model™</span>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <!-- ====================================================================
+         MAY'S LETTER MODAL OVERLAY
+         ==================================================================== -->
+    <div id="letter-modal" class="letter-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="letter-modal-title" hidden>
+      <div class="letter-modal-backdrop-click" aria-hidden="true"></div>
+      <div class="letter-modal-card" role="document">
+        <button type="button" id="btn-close-letter" class="letter-modal-close" aria-label="Close May's letter">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <header class="letter-modal-header">
+          <span class="letter-modal-badge">From May Tita</span>
+          <h2 id="letter-modal-title" class="letter-modal-title">Happy 27th Birthday &amp; 1st Anniversary</h2>
+          <div class="letter-modal-divider" aria-hidden="true"></div>
+        </header>
+
+        <div class="letter-modal-body">
+          <p class="letter-paragraph">
+            “Happy birthday, my love, and happy 1 year anniversary to us. ❤️🥹 Today is extra special because I get to celebrate the man I love and the beautiful year we’ve shared together. Thank God for bringing you into my life and making you such a precious part of my heart.
+          </p>
+          <p class="letter-paragraph">
+            Thank you for the love, the laughter, and the beautiful memories we’ve created. You mean so much to me, and I pray that God blesses you with happiness, good health, success, and everything your heart desires. I pray that we continue growing together, loving each other, and building beautiful memories together ❤️
+          </p>
+          <p class="letter-paragraph">
+            If I had to choose all over again, I would still choose you, my baby. I love you more than words can explain. Happy birthday, Baba Zuva, and happy anniversary to us. Here’s to many more birthdays, anniversaries, and years of being with you. Je t’aime de tout mon cœur, mon amour.
+          </p>
+          <p class="letter-signoff">
+            ❤️NDINOKUDA❤️”
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         IMMERSIVE FULL-SCREEN MEMORY VIEWER (TAP, VIEW, AND SWIPE)
+         ==================================================================== -->
+    <div id="gallery-lightbox" class="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Bryan Mabani's Birthday Memory Viewer" hidden>
+      <div class="lightbox-backdrop" id="lightbox-backdrop" aria-hidden="true"></div>
+      
+      <header class="lightbox-top-bar">
+        <span id="lightbox-counter" class="lightbox-counter" aria-live="polite">1 / 14</span>
+        <button type="button" id="lightbox-close-btn" class="lightbox-btn-close" aria-label="Close memory viewer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </header>
+
+      <div id="lightbox-stage" class="lightbox-stage" tabindex="0" aria-label="Memory slide viewport">
+        <div id="lightbox-media-container" class="lightbox-media-container">
+          <!-- Active photo <img> dynamically inserted -->
+        </div>
+      </div>
+
+      <!-- Discreet Navigation Controls -->
+      <button type="button" id="lightbox-prev-btn" class="lightbox-nav-btn lightbox-nav-prev" aria-label="Previous memory">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button type="button" id="lightbox-next-btn" class="lightbox-nav-btn lightbox-nav-next" aria-label="Next memory">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Scripts: Keepsake Interaction & Single Audio Controller -->
+    <script src="/js/bryan.js"></script>
+  </body>
+</html>
